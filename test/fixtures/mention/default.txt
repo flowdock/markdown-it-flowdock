@@ -1,0 +1,79 @@
+creates links for mention
+.
+@user
+.
+<p><a class="mention">@user</a></p>
+.
+
+parses multiple mentions on a single line
+.
+mentions @some, @other
+.
+<p>mentions <a class="mention">@some</a>, <a class="mention">@other</a></p>
+.
+
+does not parse mentions mid-word
+.
+invalid@mention @valid
+.
+<p>invalid@mention <a class="mention">@valid</a></p>
+.
+
+Extract mention of username with underscore
+.
+mention @user_name
+.
+<p>mention <a class="mention">@user_name</a></p>
+.
+
+Extract mention of username with dot in middle
+.
+mention @J.R
+.
+<p>mention <a class="mention">@J.R</a></p>
+.
+
+Do not extract a dot at the end of username
+.
+mentioning @username.
+.
+<p>mentioning <a class="mention">@username</a>.</p>
+.
+
+Extract mention of username with a dash
+.
+mention @user-name
+.
+<p>mention <a class="mention">@user-name</a></p>
+.
+
+Extract mention of all numeric username
+.
+mention @12345
+.
+<p>mention <a class="mention">@12345</a></p>
+.
+
+
+Extract username followed by accented latin characters
+.
+@aliceìnheiro something something
+.
+<p><a class="mention">@aliceìnheiro</a> something something</p>
+.
+
+DO NOT extract 'http' in '@http://' as username
+.
+@http://twitter.com
+.
+<p>@<a href="http://twitter.com">http://twitter.com</a></p>
+.
+
+Extract mentions before newline
+.
+@username
+@mention
+.
+<p><a class="mention">@username</a>
+<a class="mention">@mention</a></p>
+.

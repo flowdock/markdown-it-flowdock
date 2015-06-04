@@ -1,0 +1,38 @@
+{
+  "name": "markdown-it-flowdock",
+  "version": "0.0.0",
+  "description": "Flowdock hashtag and mention parser for markdown-it",
+  "author": "Ville Lautanala <lautis@gmail.com>",
+  "keywords": [
+    "markdown-it-plugin",
+    "markdown-it",
+    "flowdock"
+  ],
+  "homepage": "https://github.com/flowdock/markdown-it-flowdock",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/flowdock/markdown-it-flowdock.git"
+  },
+  "bugs": {
+    "url": "https://github.com/flowdock/markdown-it-flowdock/issues"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "scripts": {
+    "prepublish": "babel --modules common src --out-dir dist",
+    "test": "mocha --compilers js:babel/register"
+  },
+  "devDependencies": {
+    "babel": "^5.4.7",
+    "markdown-it": "^4.2.1",
+    "markdown-it-testgen": "^0.1.4",
+    "mocha": "^2.2.5",
+    "request": "^2.57.0"
+  },
+  "dependencies": {
+    "flowdock-text": "^1.2.0"
+  },
+  "directories": {
+    "test": "test"
+  }
+}

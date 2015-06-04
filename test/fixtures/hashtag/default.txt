@@ -1,0 +1,330 @@
+doesn't break headings
+.
+# hashtag
+.
+<h1>hashtag</h1>
+.
+
+creates links for hashtags
+.
+#hashtag
+.
+<p><a class="tag">#hashtag</a></p>
+.
+
+
+hashtag after anchor
+.
+http://f.com/a#anchor #hashtag
+.
+<p><a href="http://f.com/a#anchor">http://f.com/a#anchor</a> <a class="tag">#hashtag</a></p>
+.
+
+do not extract hashtag in blocks
+.
+#got
+
+    #inblock
+.
+<p><a class="tag">#got</a></p>
+<pre><code>#inblock
+</code></pre>
+.
+
+
+hashtag after #
+.
+aoeu#aoeu #tag
+.
+<p>aoeu#aoeu <a class="tag">#tag</a></p>
+.
+
+Extract a letter-then-number hashtag
+.
+this is #hashtag1
+.
+<p>this is <a class="tag">#hashtag1</a></p>
+.
+
+Extract a number-then-letter hashtag
+.
+#1hashtag is this
+.
+<p><a class="tag">#1hashtag</a> is this</p>
+.
+
+Extract an all-numeric hashtag
+.
+On the #16 bus
+.
+<p>On the <a class="tag">#16</a> bus</p>
+.
+
+Extract a single numeric hashtag
+.
+#0
+.
+<p><a class="tag">#0</a></p>
+.
+
+Extract hashtag containing a dash
+.
+hello #foo-bar
+.
+<p>hello <a class="tag">#foo-bar</a></p>
+.
+
+Extract hashtag after bracket
+.
+(#hashtag1 )#hashtag2 [#hashtag3 ]#hashtag4 ’#hashtag5’#hashtag6
+.
+<p>(<a class="tag">#hashtag1</a> )<a class="tag">#hashtag2</a> [<a class="tag">#hashtag3</a> ]<a class="tag">#hashtag4</a> ’<a class="tag">#hashtag5</a>’<a class="tag">#hashtag6</a></p>
+.
+
+Extract a hashtag containing ñ
+.
+I’ll write more tests #mañana
+.
+<p>I’ll write more tests <a class="tag">#mañana</a></p>
+.
+
+Extract a hashtag containing é
+.
+Working remotely #café
+.
+<p>Working remotely <a class="tag">#café</a></p>
+.
+
+Extract a hashtag containing ü
+.
+Getting my Oktoberfest on #münchen
+.
+<p>Getting my Oktoberfest on <a class="tag">#münchen</a></p>
+.
+
+Extract a hashtag containing ğ
+.
+in Turkish #dağ is a mountain
+.
+<p>in Turkish <a class="tag">#dağ</a> is a mountain</p>
+.
+
+DO NOT Extract a hashtag containing Japanese
+.
+this is not valid: # 会議中 ハッシュ
+.
+<p>this is not valid: # 会議中 ハッシュ</p>
+.
+
+Extract a hashtag in Korean
+.
+What is #트위터 anyway?
+.
+<p>What is <a class="tag">#트위터</a> anyway?</p>
+.
+
+Extract a half-width Hangul hashtag
+.
+Just random half-width Hangul #ﾣﾦﾰ
+.
+<p>Just random half-width Hangul <a class="tag">#ﾣﾦﾰ</a></p>
+.
+
+Extract a hashtag in Russian
+.
+What is #ашок anyway?
+.
+<p>What is <a class="tag">#ашок</a> anyway?</p>
+.
+
+Extract a hashtag in Greek
+.
+#ελληνικά is a hashtag
+.
+<p><a class="tag">#ελληνικά</a> is a hashtag</p>
+.
+
+Extract a starting katakana hashtag
+.
+#カタカナ is a hashtag
+.
+<p><a class="tag">#カタカナ</a> is a hashtag</p>
+.
+
+Extract a starting hiragana hashtag
+.
+#ひらがな FTW!
+.
+<p><a class="tag">#ひらがな</a> FTW!</p>
+.
+
+Extract a starting kanji hashtag
+.
+#漢字 is the future
+.
+<p><a class="tag">#漢字</a> is the future</p>
+.
+
+Extract a trailing katakana hashtag
+.
+Hashtag #カタカナ
+.
+<p>Hashtag <a class="tag">#カタカナ</a></p>
+.
+
+Extract a trailing hiragana hashtag
+.
+Japanese hashtags #ひらがな
+.
+<p>Japanese hashtags <a class="tag">#ひらがな</a></p>
+.
+
+Extract a trailing kanji hashtag
+.
+Study time #漢字
+.
+<p>Study time <a class="tag">#漢字</a></p>
+.
+
+Extract a central katakana hashtag
+.
+See my #カタカナ hashtag?
+.
+<p>See my <a class="tag">#カタカナ</a> hashtag?</p>
+.
+
+
+Extract a central hiragana hashtag
+.
+Study #ひらがな for fun and profit
+.
+<p>Study <a class="tag">#ひらがな</a> for fun and profit</p>
+.
+
+Extract a central kanji hashtag
+.
+Some say #漢字 is the past. what do they know?
+.
+<p>Some say <a class="tag">#漢字</a> is the past. what do they know?</p>
+.
+
+Extract a Kanji/Katakana mixed hashtag
+.
+日本語ハッシュタグテスト #日本語ハッシュタグ
+.
+<p>日本語ハッシュタグテスト <a class="tag">#日本語ハッシュタグ</a></p>
+.
+
+Extract a hashtag after a punctuation
+.
+日本語ハッシュテスト。#日本語ハッシュタグ
+.
+<p>日本語ハッシュテスト。<a class="tag">#日本語ハッシュタグ</a></p>
+.
+
+DO NOT include a punctuation in a hashtag
+.
+#日本語ハッシュタグ。
+.
+<p><a class="tag">#日本語ハッシュタグ</a>。</p>
+.
+
+
+Extract a full-width Alnum hashtag
+.
+全角英数字ハッシュタグ ＃ｈａｓｈｔａｇ１２３
+.
+<p>全角英数字ハッシュタグ <a class="tag">＃ｈａｓｈｔａｇ１２３</a></p>
+.
+
+DO NOT extract a hashtag without a preceding space
+.
+日本語ハッシュタグ#日本語ハッシュタグ
+.
+<p>日本語ハッシュタグ#日本語ハッシュタグ</p>
+.
+
+Hashtag with chouon
+.
+長音ハッシュタグ。#サッカー
+.
+<p>長音ハッシュタグ。<a class="tag">#サッカー</a></p>
+.
+
+Hashtag with half-width chouon
+.
+長音ハッシュタグ。#ｻｯｶｰ
+.
+<p>長音ハッシュタグ。<a class="tag">#ｻｯｶｰ</a></p>
+.
+
+Hashtag with half-width voiced sounds marks
+.
+#ﾊｯｼｭﾀｸﾞ #ﾊﾟﾋﾟﾌﾟﾍﾟﾎﾟ
+.
+<p><a class="tag">#ﾊｯｼｭﾀｸﾞ</a> <a class="tag">#ﾊﾟﾋﾟﾌﾟﾍﾟﾎﾟ</a></p>
+.
+
+Hashtag with half-width # after full-width ！
+.
+できましたよー！#日本語ハッシュタグ。
+.
+<p>できましたよー！<a class="tag">#日本語ハッシュタグ</a>。</p>
+.
+
+Hashtag with full-width ＃ after full-width ！
+.
+できましたよー！＃日本語ハッシュタグ。
+.
+<p>できましたよー！<a class="tag">＃日本語ハッシュタグ</a>。</p>
+.
+
+Hashtag with ideographic iteration mark
+.
+#云々 #学問のすゝめ #いすゞ #各〻
+.
+<p><a class="tag">#云々</a> <a class="tag">#学問のすゝめ</a> <a class="tag">#いすゞ</a> <a class="tag">#各〻</a></p>
+.
+
+Hashtags with ş (U+015F)
+.
+Here’s a test tweet for you: #Ateş #qrşt #ştu #ş
+.
+<p>Here’s a test tweet for you: <a class="tag">#Ateş</a> <a class="tag">#qrşt</a> <a class="tag">#ştu</a> <a class="tag">#ş</a></p>
+.
+
+Hashtag before punctuations
+.
+#hashtag: #hashtag; #hashtag, #hashtag. #hashtag! #hashtag?
+.
+<p><a class="tag">#hashtag</a>: <a class="tag">#hashtag</a>; <a class="tag">#hashtag</a>, <a class="tag">#hashtag</a>. <a class="tag">#hashtag</a>! <a class="tag">#hashtag</a>?</p>
+.
+
+Hashtag after punctuations
+.
+:#hashtag ;#hashtag ,#hashtag .#hashtag !#hashtag ?#hashtag
+.
+<p>:<a class="tag">#hashtag</a> ;<a class="tag">#hashtag</a> ,<a class="tag">#hashtag</a> .<a class="tag">#hashtag</a> !<a class="tag">#hashtag</a> ?<a class="tag">#hashtag</a></p>
+.
+
+Hashtag before newline
+.
+#hashtag
+test
+#hashtag2
+test
+#hashtag3
+.
+<p><a class="tag">#hashtag</a>
+test
+<a class="tag">#hashtag2</a>
+test
+<a class="tag">#hashtag3</a></p>
+.
+
+DO NOT extract hashtag when # is followed by URL
+.
+#http://twitter.com #https://twitter.com https://twitter.com/#login
+.
+<p>#<a href="http://twitter.com">http://twitter.com</a> #<a href="https://twitter.com">https://twitter.com</a> <a href="https://twitter.com/#login">https://twitter.com/#login</a></p>
+.
