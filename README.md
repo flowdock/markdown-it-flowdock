@@ -1,5 +1,7 @@
 # markdown-it-flowdock
 
+[![Build Status](https://travis-ci.org/flowdock/markdown-it-flowdock.svg)](https://travis-ci.org/flowdock/markdown-it-flowdock)
+
 > flowdock hashtag (`#tag`) and mentions (`@user`) plugin for [markdown-it](https://github.com/markdown-it/markdown-it) markdown parser.
 
 `@user` => `<a class="mention">@user</a>`
