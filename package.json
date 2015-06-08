@@ -30,7 +30,8 @@
     "request": "^2.57.0"
   },
   "dependencies": {
-    "flowdock-text": "^1.2.0"
+    "regenerate": "^1.2.1",
+    "unicode-7.0.0": "^0.1.5"
   },
   "directories": {
     "test": "test"
