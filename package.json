@@ -23,14 +23,12 @@
     "test": "mocha --compilers js:babel/register"
   },
   "devDependencies": {
-    "babel": "^5.4.7",
-    "markdown-it": "^4.2.1",
+    "babel": "^5.5.8",
+    "markdown-it": "^4.2.2",
     "markdown-it-testgen": "^0.1.4",
     "mocha": "^2.2.5",
-    "request": "^2.57.0"
-  },
-  "dependencies": {
     "regenerate": "^1.2.1",
+    "request": "^2.57.0",
     "unicode-7.0.0": "^0.1.5"
   },
   "directories": {
