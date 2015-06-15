@@ -28,8 +28,3 @@ Tests are run with npm:
 npm install
 npm test
 ```
-
-## TODO
-
-- customise rendering
-- remove flowdock-text as dependency
