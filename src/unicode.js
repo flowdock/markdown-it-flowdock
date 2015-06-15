@@ -1,3 +1,4 @@
+/* The regexes are automatically compiled during prepublish */
 import regenerate from 'regenerate';
 
 const tagBody = regenerate()

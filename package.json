@@ -19,7 +19,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "scripts": {
-    "prepublish": "babel --modules common src --out-dir dist",
+    "prepublish": "babel --modules common src --out-dir dist && babel-node support/unicode.js",
     "test": "mocha --compilers js:babel/register"
   },
   "devDependencies": {
