@@ -1,4 +1,3 @@
-import {tagEnd, tagCharacter} from './unicode';
 import parser from './parser';
 
 function flowdockHashtag(tokens, idx) {
@@ -9,8 +8,7 @@ function flowdockHashtag(tokens, idx) {
 
 export default function(md, options) {
   const split = "#|＃";
-  const regex = new RegExp("(?:^|$|[^" + tagEnd.slice(1) + ")((?:" + split + ")(?:" + tagCharacter + ")*(?:" + tagEnd + ")+)", "g");
-  const hashtag = parser(md, 'hashtag', new RegExp(split), regex);
+  const hashtag = parser(md, 'hashtag', new RegExp(split));
   md.core.ruler.push('hashtag', hashtag);
   md.renderer.rules.hashtag = flowdockHashtag;
 };

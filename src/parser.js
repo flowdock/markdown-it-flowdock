@@ -1,3 +1,11 @@
+import {tagEnd, tagCharacter} from './unicode';
+
+function not(group) { return "[^" + group.slice(1); }
+
+function matcher(boundary, body, end) {
+  return new RegExp("(?:^|$|" + not(end) + ")((?:" + boundary + ")(?:" + body + ")*(?:" + end + ")+)", "g");
+};
+
 function split(currentToken, boundary, regex, Token, name) {
   // find tokens matching regex
   var text = currentToken.content;
@@ -38,8 +46,9 @@ function split(currentToken, boundary, regex, Token, name) {
   return nodes;
 }
 
-export default function(md, name, boundary, regex) {
+export default function(md, name, boundary) {
   const arrayReplaceAt = md.utils.arrayReplaceAt;
+  const regex = matcher(boundary.source, tagCharacter, tagEnd);
 
   return function parser(state) {
     const blockTokens = state.tokens;

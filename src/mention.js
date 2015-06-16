@@ -1,4 +1,3 @@
-import {tagEnd, tagCharacter} from './unicode';
 import parser from './parser';
 
 function flowdockMention(tokens, idx) {
@@ -9,8 +8,7 @@ function flowdockMention(tokens, idx) {
 
 export default function(md, options) {
   const split = "@|＠";
-  const regex = new RegExp("(?:^|$|[^" + tagEnd.slice(1) + ")((?:" + split + ")(?:" + tagCharacter + ")*(?:" + tagEnd + ")+)", "g");
-  const mention = parser(md, 'mention', new RegExp(split), regex);
+  const mention = parser(md, 'mention', new RegExp(split));
   md.core.ruler.push('mention', mention);
   md.renderer.rules.mention = flowdockMention;
 };
