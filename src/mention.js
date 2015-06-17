@@ -1,5 +1,4 @@
-import FlowdockText from 'flowdock-text'
-import parser from './parser'
+import parser from './parser';
 
 function flowdockMention(tokens, idx) {
   var tag = tokens[idx].content;
@@ -8,7 +7,8 @@ function flowdockMention(tokens, idx) {
 }
 
 export default function(md, options) {
-  const mention = parser(md, 'mention', /@|＠/, FlowdockText.regexen.autoLinkMentions);
+  const split = "@|＠";
+  const mention = parser(md, 'mention', new RegExp(split));
   md.core.ruler.push('mention', mention);
   md.renderer.rules.mention = flowdockMention;
 };

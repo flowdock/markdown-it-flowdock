@@ -19,18 +19,16 @@
   "license": "MIT",
   "main": "dist/index.js",
   "scripts": {
-    "prepublish": "babel --modules common src --out-dir dist",
+    "prepublish": "babel --modules common src --out-dir dist && babel-node support/unicode.js",
     "test": "mocha --compilers js:babel/register"
   },
   "devDependencies": {
-    "babel": "^5.4.7",
-    "markdown-it": "^4.2.1",
+    "babel": "^5.5.8",
+    "markdown-it": "^4.2.2",
     "markdown-it-testgen": "^0.1.4",
     "mocha": "^2.2.5",
-    "request": "^2.57.0"
-  },
-  "dependencies": {
-    "flowdock-text": "^1.2.0"
+    "regenerate": "^1.2.1",
+    "unicode-7.0.0": "^0.1.5"
   },
   "directories": {
     "test": "test"
