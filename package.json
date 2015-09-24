@@ -22,6 +22,9 @@
     "prepublish": "babel --modules common src --out-dir dist && babel-node support/unicode.js",
     "test": "mocha --compilers js:babel/register"
   },
+  "dependencies": {
+    "flowdock-text": "^1.2.0"
+  },
   "devDependencies": {
     "babel": "^5.5.8",
     "markdown-it": "^4.2.2",

@@ -83,5 +83,5 @@ export default function(md, name, boundary) {
         }
       }
     }
-  }
+  };
 };

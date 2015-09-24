@@ -8,10 +8,10 @@ describe('markdown-it-flowdock', function () {
 
   beforeEach(function () {
     md = require('markdown-it')({
-      html: false,
-      langPrefix: '',
-      typographer: true,
-      linkify: true
+      html:        false,
+      langPrefix:  '',
+      typographer: false,
+      linkify:     false      
     });
   });
 
@@ -23,5 +23,10 @@ describe('markdown-it-flowdock', function () {
   it('applies markup to mentions', function () {
     md.use(require('../src'));
     generate(path.join(__dirname, 'fixtures/mention/default.txt'), md);
+  });
+  
+  it('applies markup to urls', function () {
+    md.use(require('../src'));
+    generate(path.join(__dirname, 'fixtures/url/default.txt'), md);
   });
 });
