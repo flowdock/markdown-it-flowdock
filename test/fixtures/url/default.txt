@@ -1,0 +1,211 @@
+doesn't break simple text
+.
+Hello World
+.
+<p>Hello World</p>
+.
+
+works with simple urls
+.
+http://flowdock.com
+.
+<p><a href="http://flowdock.com">http://flowdock.com</a></p>
+.
+
+works with text before the url
+.
+baz http://flowdock.com
+.
+<p>baz <a href="http://flowdock.com">http://flowdock.com</a></p>
+.
+
+works with text after the url
+.
+http://flowdock.com bar
+.
+<p><a href="http://flowdock.com">http://flowdock.com</a> bar</p>
+.
+
+works with text before and after the url
+.
+bar http://flowdock.com baz
+.
+<p>bar <a href="http://flowdock.com">http://flowdock.com</a> baz</p>
+.
+
+works with other markup before the url
+.
+* http://flowdock.com
+.
+<ul>
+<li><a href="http://flowdock.com">http://flowdock.com</a></li>
+</ul>
+.
+
+works with markup after the url
+.
+http://flowdock.com **baz**
+.
+<p><a href="http://flowdock.com">http://flowdock.com</a> <strong>baz</strong></p>
+.
+
+works with markup before the url
+.
+**baz** http://flowdock.com
+.
+<p><strong>baz</strong> <a href="http://flowdock.com">http://flowdock.com</a></p>
+.
+
+should not replace url in inline code block
+.
+`http://flowdock.com`
+.
+<p><code>http://flowdock.com</code></p>
+.
+
+should replace url in a message that contains an inline code block at end
+.
+http://twitter.com `this is cool`
+.
+<p><a href="http://twitter.com">http://twitter.com</a> <code>this is cool</code></p>
+.
+
+should replace url in a message that contains an incline code block in the middle
+.
+http://twitter.com `this is cool` http://twitter.com
+.
+<p><a href="http://twitter.com">http://twitter.com</a> <code>this is cool</code> <a href="http://twitter.com">http://twitter.com</a></p>
+.
+
+should replace url in the middle of two code blocks
+.
+`this is cool` http://twitter.com `this is bad`
+.
+<p><code>this is cool</code> <a href="http://twitter.com">http://twitter.com</a> <code>this is bad</code></p>
+.
+
+should replace url in the middle of two code blocks with url in code block
+.
+`this is cool` http://twitter.com `http://twitter.com`
+.
+<p><code>this is cool</code> <a href="http://twitter.com">http://twitter.com</a> <code>http://twitter.com</code></p>
+.
+
+should not replace url in code block
+.
+    http://flowdock.com
+.
+<pre><code>http://flowdock.com
+</code></pre>
+.
+
+should work in blockquotes
+.
+> http://flowdock.com
+.
+<blockquote>
+<p><a href="http://flowdock.com">http://flowdock.com</a></p>
+</blockquote>
+.
+
+should work with multiple urls in markdown
+.
+* http://flowdock.com
+* http://twitter.com
+.
+<ul>
+<li><a href="http://flowdock.com">http://flowdock.com</a></li>
+<li><a href="http://twitter.com">http://twitter.com</a></li>
+</ul>
+.
+
+should work with multiple urls in the same line
+.
+http://flowdock.com is cool http://twitter.com
+.
+<p><a href="http://flowdock.com">http://flowdock.com</a> is cool <a href="http://twitter.com">http://twitter.com</a></p>
+.
+
+should handle dashes in the url
+.
+https://github.com/rackt/react-router/blob/master/UPGRADE_GUIDE.md#012x---0132-please-skip-this
+.
+<p><a href="https://github.com/rackt/react-router/blob/master/UPGRADE_GUIDE.md#012x---0132-please-skip-this">https://github.com/rackt/react-router/blob/master/UPGRADE_GUIDE.md#012x---0132-please-skip-this</a></p>
+.
+
+should handle underscores in the url
+.
+https://example.com/_/foosomeemphasizedcontent_
+.
+<p><a href="https://example.com/_/foosomeemphasizedcontent">https://example.com/_/foosomeemphasizedcontent</a>_</p>
+.
+
+should handle pound symbol
+.
+#http://twitter.com
+.
+<p>#<a href="http://twitter.com">http://twitter.com</a></p>
+.
+
+should work with strong
+.
+**http://twitter.com**
+.
+<p><strong><a href="http://twitter.com">http://twitter.com</a></strong></p>
+.
+
+should work with em
+.
+*http://twitter.com*
+.
+<p><em><a href="http://twitter.com">http://twitter.com</a></em></p>
+.
+
+should work with _ em
+.
+_http://twitter.com_
+.
+<p><em><a href="http://twitter.com">http://twitter.com</a></em></p>
+.
+
+should work with url that has surrounding parens
+.
+(http://twitter.com)
+.
+<p>(<a href="http://twitter.com">http://twitter.com</a>)</p>
+.
+
+should work with url that has paren in the path
+.
+foo http://twitter.com/f(lowdock)_is_cool
+.
+<p>foo <a href="http://twitter.com/f(lowdock)_is_cool">http://twitter.com/f(lowdock)_is_cool</a></p>
+.
+
+should work with url that has paren in the hash
+.
+http://twitter.com/#t(ea)m
+.
+<p><a href="http://twitter.com/#t(ea)m">http://twitter.com/#t(ea)m</a></p>
+.
+
+should work with graphite urls - nested parens
+.
+http://graphite/render?target=summarize(derivative(app.numUsers),"1min")&title=New_Users_Per_Minute
+.
+<p><a href="http://graphite/render?target=summarize(derivative(app.numUsers),%221min%22)&amp;title=New_Users_Per_Minute">http://graphite/render?target=summarize(derivative(app.numUsers),&quot;1min&quot;)&amp;title=New_Users_Per_Minute</a></p>
+.
+
+should not encode a url that is already encoded with autolink
+.
+<http://twitter.com>
+.
+<p><a href="http://twitter.com">http://twitter.com</a></p>
+.
+
+should not encode a url that is already encoded
+.
+[Twitter](http://twitter.com)
+.
+<p><a href="http://twitter.com">Twitter</a></p>
+.
