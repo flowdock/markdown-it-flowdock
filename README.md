@@ -2,10 +2,11 @@
 
 [![Build Status](https://travis-ci.org/flowdock/markdown-it-flowdock.svg)](https://travis-ci.org/flowdock/markdown-it-flowdock)
 
-> flowdock hashtag (`#tag`) and mentions (`@user`) plugin for [markdown-it](https://github.com/markdown-it/markdown-it) markdown parser.
+> flowdock hashtag (`#tag`), mentions (`@user`) and relaxed autolink plugin for [markdown-it](https://github.com/markdown-it/markdown-it) markdown parser.
 
-`@user` => `<a class="mention">@user</a>`
-`#hashtag` => `<a class="hashtag">#hashtag</a>`
+* `@user` => `<a class="mention">@user</a>`
+* `#hashtag` => `<a class="hashtag">#hashtag</a>`
+* `https://github.com/flowdock/markdown-it-flowdock` => `<a href="https://github.com/flowdock/markdown-it-flowdock">https://github.com/flowdock/markdown-it-flowdock</a>`
 
 ## Install
 
