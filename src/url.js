@@ -1,7 +1,10 @@
 function replaceUrlTextWithAutoLinkUrl(text) {
-  const urlMatcher = /((https?|ftp|file):\/\/[^ ]+[^ )*_])/ig;
+  const urlMatcher = /([a-z-.:]+:\/\/[^ ]+[^ )*_])/ig;
+
   return text
     .replace(urlMatcher,"<$1>")
+    .replace(/\[([^\]]+)\]\(<([^>]+)>\)/, "[$1]($2)")
+    .replace(/<(onenote:[^>]+)>/, "[$1]($1)")
     .replace(/<<([^>]+)>>/ig, "<$1>");
 }
 
@@ -20,7 +23,9 @@ function dealWithCodeBlock(text) {
 }
 
 function flowdockUrl(state) {
-  for (let token of state.tokens) {
+  var tokens = state.tokens;
+  for (var i = 0; i < tokens.length; i++) {
+    var token = tokens[i];
     if (token.type !== 'inline') { continue; }
 
     token.content = dealWithCodeBlock(token.content);

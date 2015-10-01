@@ -209,3 +209,24 @@ should not encode a url that is already encoded
 .
 <p><a href="http://twitter.com">Twitter</a></p>
 .
+
+does not break urls with %20
+.
+https://example.com/Screenshot%202015-06-12%2016.48.11.png
+.
+<p><a href="https://example.com/Screenshot%202015-06-12%2016.48.11.png">https://example.com/Screenshot 2015-06-12 16.48.11.png</a></p>
+.
+
+works with less popular protocol links
+.
+onenote:http://example.com
+.
+<p><a href="onenote:http://example.com">onenote:http://example.com</a></p>
+.
+
+works with when less popular protocol links are used in a real markdown link
+.
+[Note](onenote:http://example.com)
+.
+<p><a href="onenote:http://example.com">Note</a></p>
+.
