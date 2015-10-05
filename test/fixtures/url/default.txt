@@ -230,3 +230,17 @@ works with when less popular protocol links are used in a real markdown link
 .
 <p><a href="onenote:http://example.com">Note</a></p>
 .
+
+works when urls end with paren
+.
+https://en.wikipedia.org/wiki/Terminator_(franchise)
+.
+<p><a href="https://en.wikipedia.org/wiki/Terminator_(franchise)">https://en.wikipedia.org/wiki/Terminator_(franchise)</a></p>
+.
+
+works when multiple urls end with paren
+.
+https://en.wikipedia.org/wiki/Terminator_(franchise) foo https://en.wikipedia.org/wiki/Terminator_(franchise)
+.
+<p><a href="https://en.wikipedia.org/wiki/Terminator_(franchise)">https://en.wikipedia.org/wiki/Terminator_(franchise)</a> foo <a href="https://en.wikipedia.org/wiki/Terminator_(franchise)">https://en.wikipedia.org/wiki/Terminator_(franchise)</a></p>
+.

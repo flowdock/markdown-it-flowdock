@@ -1,11 +1,26 @@
+function fixUrlsEndingInAParen(canidate) {
+  const matches = canidate.match(/(\(<[^>]+>\))|<([^>]+)>\)/);
+
+  if ((matches !== undefined) && (matches !== null)) {
+    const brokenLink = matches[2];
+    
+    if((brokenLink !== undefined) && (brokenLink !== null)) {
+      const fixedCanidate = canidate.replace("<" + matches[2] + ">)", "<" + matches[2] + ")>");
+      return fixUrlsEndingInAParen(fixedCanidate);
+    }
+  }
+
+  return canidate;
+}
+
 function replaceUrlTextWithAutoLinkUrl(text) {
   const urlMatcher = /([a-z-.:]+:\/\/[^ ]+[^ )*_])/ig;
+  const firstPass = text.replace(urlMatcher, "<$1>");
 
-  return text
-    .replace(urlMatcher,"<$1>")
-    .replace(/\[([^\]]+)\]\(<([^>]+)>\)/, "[$1]($2)")
-    .replace(/<(onenote:[^>]+)>/, "[$1]($1)")
-    .replace(/<<([^>]+)>>/ig, "<$1>");
+  return fixUrlsEndingInAParen(firstPass)
+    .replace(/\[([^\]]+)\]\(<([^>]+)>\)/, "[$1]($2)")  // Fix for URLs already in markdown syntax []()
+    .replace(/<(onenote:[^>]+)>/, "[$1]($1)")          // Fix for onenote urls
+    .replace(/<<([^>]+)>>/ig, "<$1>");                 // Fix for URLs already surrounded by <>
 }
 
 function dealWithCodeBlock(text) {
