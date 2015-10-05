@@ -244,3 +244,10 @@ https://en.wikipedia.org/wiki/Terminator_(franchise) foo https://en.wikipedia.or
 .
 <p><a href="https://en.wikipedia.org/wiki/Terminator_(franchise)">https://en.wikipedia.org/wiki/Terminator_(franchise)</a> foo <a href="https://en.wikipedia.org/wiki/Terminator_(franchise)">https://en.wikipedia.org/wiki/Terminator_(franchise)</a></p>
 .
+
+works with urls that don't have protocols
+.
+Hi from twitter.com
+.
+<p>Hi from <a href="http://twitter.com">twitter.com</a></p>
+.

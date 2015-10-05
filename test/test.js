@@ -11,7 +11,7 @@ describe('markdown-it-flowdock', function () {
       html:        false,
       langPrefix:  '',
       typographer: false,
-      linkify:     false      
+      linkify:     true      
     });
   });
 
