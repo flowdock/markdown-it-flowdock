@@ -31,7 +31,8 @@ function dealWithCodeBlock(text) {
   }
 
   const frontPart = text.slice(0, startOfCodeBlock);
-  const endOfCodeBlock = text.indexOf('`', startOfCodeBlock + 1) + 1;
+  const nextCodeBlockMarker = text.indexOf('`', startOfCodeBlock + 1);
+  const endOfCodeBlock = nextCodeBlockMarker === -1 ? text.length : nextCodeBlockMarker + 1;
   const codeBlock = text.slice(startOfCodeBlock, endOfCodeBlock);
 
   return replaceUrlTextWithAutoLinkUrl(frontPart) + codeBlock + dealWithCodeBlock(text.slice(endOfCodeBlock));

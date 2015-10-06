@@ -251,3 +251,17 @@ Hi from twitter.com
 .
 <p>Hi from <a href="http://twitter.com">twitter.com</a></p>
 .
+
+unclosed code blocks shouldn't cause a stack overflow
+.
+`bad code block
+.
+<p>`bad code block</p>
+.
+
+unclosed code block after a correct code block shouldn't cause a stack overflow
+.
+`cool code http://twitter.com` and `bad code
+.
+<p><code>cool code http://twitter.com</code> and `bad code</p>
+.
