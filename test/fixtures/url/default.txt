@@ -287,3 +287,10 @@ foo
 <a href="http://github.com">http://github.com</a>
 bar</p>
 .
+
+should work with nested markdown links
+.
+[[mylink](http://www.google.com)](http://www.hasalink.doh)
+.
+<p>[<a href="http://www.google.com">mylink</a>](<a href="http://www.hasalink.doh">http://www.hasalink.doh</a>)</p>
+.
