@@ -265,3 +265,25 @@ unclosed code block after a correct code block shouldn't cause a stack overflow
 .
 <p><code>cool code http://twitter.com</code> and `bad code</p>
 .
+
+urls ending with a line break should work
+.
+http://twitter.com
+foo is bar
+.
+<p><a href="http://twitter.com">http://twitter.com</a>
+foo is bar</p>
+.
+
+mutliple urls ending with line breaks in the same text should work
+.
+http://twitter.com
+foo
+http://github.com
+bar
+.
+<p><a href="http://twitter.com">http://twitter.com</a>
+foo
+<a href="http://github.com">http://github.com</a>
+bar</p>
+.
