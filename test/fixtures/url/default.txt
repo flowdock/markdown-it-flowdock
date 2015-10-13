@@ -308,3 +308,12 @@ should work with many markdown links seperated by a semicolon
 .
 <p><a href="http://twitter.com">cool link</a>; and another <a href="http://flowdock.com">cool link</a></p>
 .
+
+should work with a url followed immediately by a newline
+.
+http://twitter.com
+some words
+.
+<p><a href="http://twitter.com">http://twitter.com</a>
+some words</p>
+.
