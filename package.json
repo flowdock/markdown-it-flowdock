@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-flowdock",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Flowdock hashtag and mention parser for markdown-it",
   "author": "Ville Lautanala <lautis@gmail.com>",
   "keywords": [
