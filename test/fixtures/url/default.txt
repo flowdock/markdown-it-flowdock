@@ -294,3 +294,17 @@ should work with nested markdown links
 .
 <p>[<a href="http://www.google.com">mylink</a>](<a href="http://www.hasalink.doh">http://www.hasalink.doh</a>)</p>
 .
+
+should work with many markdown links by a comma
+.
+[cool link](http://twitter.com), and another [cool link](http://flowdock.com)
+.
+<p><a href="http://twitter.com">cool link</a>, and another <a href="http://flowdock.com">cool link</a></p>
+.
+
+should work with many markdown links seperated by a semicolon
+.
+[cool link](http://twitter.com); and another [cool link](http://flowdock.com)
+.
+<p><a href="http://twitter.com">cool link</a>; and another <a href="http://flowdock.com">cool link</a></p>
+.
