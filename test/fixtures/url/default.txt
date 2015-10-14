@@ -317,3 +317,10 @@ some words
 <p><a href="http://twitter.com">http://twitter.com</a>
 some words</p>
 .
+
+should work when a url is surrounded by quotes
+.
+("http://twitter.com")?
+.
+<p>(&quot;<a href="http://twitter.com">http://twitter.com</a>&quot;)?</p>
+.
