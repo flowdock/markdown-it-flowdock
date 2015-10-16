@@ -324,3 +324,11 @@ should work when a url is surrounded by quotes
 .
 <p>(&quot;<a href="http://twitter.com">http://twitter.com</a>&quot;)?</p>
 .
+
+should work when a URL is at the end of a sentence
+.
+http://twitter.com.
+.
+<p><a href="http://twitter.com">http://twitter.com</a>.</p>
+.
+
