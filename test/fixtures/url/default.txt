@@ -332,3 +332,16 @@ http://twitter.com.
 <p><a href="http://twitter.com">http://twitter.com</a>.</p>
 .
 
+should work with a slash at the end of the url
+.
+http://twitter.com/
+.
+<p><a href="http://twitter.com/">http://twitter.com/</a></p>
+.
+
+should work with a complicated markdown link
+.
+[Add - Awesomeness  - (PR) - (Auto) build 1 failed](http://ci.com:8080/job/Add_-_Awesomeness_-_(PR)_-_(Auto)/1/)
+.
+<p><a href="http://ci.com:8080/job/Add_-_Awesomeness_-_(PR)_-_(Auto)/1/">Add - Awesomeness  - (PR) - (Auto) build 1 failed</a></p>
+.
