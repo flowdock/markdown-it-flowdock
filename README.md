@@ -17,7 +17,7 @@ npm install markdown-it-flowdock --save
 ```
 
 ```js
-var md = require('markdown-it')().use(require('markdown-it-diaspora-flowdock'));
+var md = require('markdown-it')().use(require('markdown-it-flowdock'));
 md.render('Test #hahstag @user'); // => 'Test <a class="hashtag">#hashtag</a> <a class="mention">@user</a>'
 ```
 
