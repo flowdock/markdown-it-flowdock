@@ -14,10 +14,11 @@ function fixUrlsEndingInAParen(canidate) {
 }
 
 function replaceUrlTextWithAutoLinkUrl(text) {
-  const urlMatcher = /([a-z-.:]+:\/\/\S+[^_)\W]\/?)/ig;
+  const urlMatcher = /([a-z-_.:]+:\/\/\S+[^)\W]-?\/?)/ig;
   const firstPass = text.replace(urlMatcher, "<$1>");
 
   return fixUrlsEndingInAParen(firstPass)
+    .replace(/(<_([^>]+)_>)/, "_[$2]($2)_")            // Fix for URLs included in _<url>_
     .replace(/\[([^\]]+)\]\(<([^>]+)>\)/, "[$1]($2)")  // Fix for URLs already in markdown syntax []()
     .replace(/<(onenote:[^>]+)>/, "[$1]($1)")          // Fix for onenote urls
     .replace(/<<([^>]+)>>/ig, "<$1>");                 // Fix for URLs already surrounded by <>

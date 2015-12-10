@@ -137,7 +137,14 @@ should handle underscores in the url
 .
 https://example.com/_/foosomeemphasizedcontent_
 .
-<p><a href="https://example.com/_/foosomeemphasizedcontent">https://example.com/_/foosomeemphasizedcontent</a>_</p>
+<p><a href="https://example.com/_/foosomeemphasizedcontent_">https://example.com/_/foosomeemphasizedcontent_</a></p>
+.
+
+should handle dashes in the url
+.
+https://twitter.com/-/thisiscool-
+.
+<p><a href="https://twitter.com/-/thisiscool-">https://twitter.com/-/thisiscool-</a></p>
 .
 
 should handle pound symbol
