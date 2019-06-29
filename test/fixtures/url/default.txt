@@ -12,6 +12,21 @@ http://flowdock.com
 <p><a href="http://flowdock.com">http://flowdock.com</a></p>
 .
 
+works with simple urls
+.
+http://flowdock.com/s
+.
+<p><a href="http://flowdock.com/s">http://flowdock.com/s</a></p>
+.
+
+
+works with simple urls
+.
+http://flowdock.com/sssss
+.
+<p><a href="http://flowdock.com/sssss">http://flowdock.com/sssss</a></p>
+.
+
 works with text before the url
 .
 baz http://flowdock.com

@@ -14,14 +14,50 @@ function fixUrlsEndingInAParen(canidate) {
 }
 
 function replaceUrlTextWithAutoLinkUrl(text) {
-  const urlMatcher = /([a-z-_.:]+:\/\/\S+[^)\W]-?\/?)/ig;
-  const firstPass = text.replace(urlMatcher, "<$1>");
+  var urlMatcher = /([a-z-_.:]+:\/\/\S+[^)\W]-?\/?)/ig;
+  var urlSMatcher = "([^>]+)\>s+$";
+  var firstPass = text.replace(urlMatcher, "<$1>");
+  var sSubstring = "";
+  var formattedString = "";
 
-  return fixUrlsEndingInAParen(firstPass)
-    .replace(/(<_([^>]+)_>)/, "_[$2]($2)_")            // Fix for URLs included in _<url>_
-    .replace(/\[([^\]]+)\]\(<([^>]+)>\)/, "[$1]($2)")  // Fix for URLs already in markdown syntax []()
-    .replace(/<(onenote:[^>]+)>/, "[$1]($1)")          // Fix for onenote urls
-    .replace(/<<([^>]+)>>/ig, "<$1>");                 // Fix for URLs already surrounded by <>
+  var isChrome = checkForChrome()
+  if(firstPass.match(urlSMatcher) && isChrome) {
+     var index = firstPass.lastIndexOf('>');
+     sSubstring = firstPass.substring(index+1, firstPass.length)
+  }
+  
+  formattedString = fixUrlsEndingInAParen(firstPass)
+  .replace(/(<_([^>]+)_>)/, "_[$2]($2)_") // Fix for URLs included in _<url>_
+  .replace(/\[([^\]]+)\]\(<([^>]+)>\)/, "[$1]($2)") // Fix for URLs already in markdown syntax []()
+  .replace(/<(onenote:[^>]+)>/, "[$1]($1)") // Fix for onenote urls
+  .replace(/<<([^>]+)>>/ig, "<$1>") // Fix for URLs already surrounded by <>
+  .replace(/<([^>]+)\>s+$/, "<$1"+sSubstring+">");
+
+  if(isChrome) {
+    formattedString = fixUrlsEndingInAParen(firstPass).replace(/<([^>]+)\>s+$/, "<$1"+sSubstring+">")
+  }
+
+  return formattedString;        
+}
+
+function checkForChrome() {
+  var isChromium = window.chrome;
+  var winNav = window.navigator;
+  var vendorName = winNav.vendor;
+  var isOpera = typeof window.opr !== "undefined";
+  var isIEedge = winNav.userAgent.indexOf("Edge") > -1;
+  
+  if(
+    isChromium !== null &&
+    typeof isChromium !== "undefined" &&
+    vendorName === "Google Inc." &&
+    isOpera === false &&
+    isIEedge === false
+  ) {
+     return true;
+  } else { 
+     return false;
+  }
 }
 
 function dealWithCodeBlock(text) {
