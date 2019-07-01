@@ -14,7 +14,7 @@ function fixUrlsEndingInAParen(canidate) {
 }
 
 function replaceUrlTextWithAutoLinkUrl(text) {
-  const urlMatcher = /([a-z-_.:]+:\/\/\S+[^)\W]-?\/?)/ig;
+  const urlMatcher = /([a-z-_.:]+:\/\/\S+[^)\W]-?\/?)/igu;
   const firstPass = text.replace(urlMatcher, "<$1>");
 
   return fixUrlsEndingInAParen(firstPass)
