@@ -1,16 +1,16 @@
-function fixUrlsEndingInAParen(canidate) {
-  const matches = canidate.match(/(\(<[^>]+>\))|<([^>]+)>\)/);
+function fixUrlsEndingInAParen(candidate) {
+  const matches = candidate.match(/(\(<[^>]+>\))|<([^>]+)>\)/);
 
   if ((matches !== undefined) && (matches !== null)) {
     const brokenLink = matches[2];
     
     if((brokenLink !== undefined) && (brokenLink !== null)) {
-      const fixedCanidate = canidate.replace("<" + matches[2] + ">)", "<" + matches[2] + ")>");
-      return fixUrlsEndingInAParen(fixedCanidate);
+      const fixedCandidate = candidate.replace("<" + matches[2] + ">)", "<" + matches[2] + ")>");
+      return fixUrlsEndingInAParen(fixedCandidate);
     }
   }
 
-  return canidate;
+  return candidate;
 }
 
 function replaceUrlTextWithAutoLinkUrl(text) {
